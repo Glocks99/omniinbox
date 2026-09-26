@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { createConversation, listConversations, listMessages, sendMessage, markRead, updateWorkflow, createInternalNote } from '../controllers/conversations.controller.js';
+const router = Router();
+router.get('/', listConversations);
+router.post('/', createConversation);
+router.get('/:id/messages', listMessages);
+router.post('/:id/messages', sendMessage);
+router.post('/:id/notes', createInternalNote);
+router.patch('/:id', updateWorkflow);
+router.patch('/:id/read', markRead);
+export default router;

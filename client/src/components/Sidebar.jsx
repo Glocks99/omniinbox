@@ -1,0 +1,10 @@
+import { Inbox, MessageCircle, Instagram, Send, LogOut, Users } from 'lucide-react';
+import BrandLogo from './BrandLogo.jsx';
+import PlatformBadge from './PlatformBadge.jsx';
+
+const filters = [{ id: 'all', label: 'All conversations', Icon: Inbox }, { id: 'omniinbox', label: 'OmniInbox', Icon: Users }, { id: 'telegram', label: 'Telegram bot', Icon: Send }, { id: 'whatsapp', label: 'WhatsApp', Icon: MessageCircle, comingSoon: true }, { id: 'instagram', label: 'Instagram', Icon: Instagram, comingSoon: true }];
+export default function Sidebar({ active, onSelect, stats, onLogout, user, socketConnected }) {
+  const displayName = user?.displayName || user?.email?.split('@')[0] || 'Account';
+  const initial = displayName.trim().charAt(0).toUpperCase() || 'A';
+  return <aside className="sidebar"><BrandLogo/><div className="workspace-label">WORKSPACE</div><nav>{filters.map(({ id, label, Icon, comingSoon }) => <button key={id} type="button" title={comingSoon ? `${label} integration coming soon` : label} disabled={comingSoon} className={`nav-item ${active === id ? 'active' : ''} ${comingSoon ? 'nav-coming-soon' : ''}`} onClick={() => !comingSoon && onSelect(id)}><Icon size={18}/><span>{label}</span>{comingSoon ? <span className="nav-soon">Soon</span> : id !== 'all' && stats?.byPlatform && <span className="nav-count">{stats.byPlatform[id] || 0}</span>}</button>)}</nav><div className="sidebar-bottom"><div className="sidebar-help"><span className={`online-dot ${socketConnected ? '' : 'offline-dot'}`}/><div><strong>{socketConnected ? 'Live messaging connected' : 'Connecting to live chat'}</strong><small>{socketConnected ? 'Ready to send and receive' : 'Check the server connection'}</small></div></div><button className="logout-button" onClick={onLogout}><LogOut size={17}/> Sign out</button><div className="profile"><div className="profile-avatar">{initial}</div><div className="profile-copy"><strong>{displayName}</strong><small>@{user?.username || user?.email || 'workspace'}</small></div><PlatformBadge platform="omniinbox" compact/></div></div></aside>;
+}

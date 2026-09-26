@@ -1,0 +1,26 @@
+import express from 'express';
+import cors from 'cors';
+import auth from './middleware/auth.js';
+import errorHandler from './middleware/errorHandler.js';
+import authRoutes from './routes/auth.routes.js';
+import conversationRoutes from './routes/conversations.routes.js';
+import messageRoutes from './routes/messages.routes.js';
+import userRoutes from './routes/users.routes.js';
+import workspaceRoutes from './routes/workspace.routes.js';
+import integrationRoutes from './routes/integrations.routes.js';
+import notificationRoutes from './routes/notifications.routes.js';
+
+const app = express();
+app.use(cors({ origin: process.env.CLIENT_ORIGIN?.split(',') ?? true }));
+app.use(express.json({ limit: '32kb' }));
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+app.use('/api/auth', authRoutes);
+app.use('/api', auth, messageRoutes);
+app.use('/api/users', auth, userRoutes);
+app.use('/api/workspace', auth, workspaceRoutes);
+app.use('/api/integrations', auth, integrationRoutes);
+app.use('/api/notifications', auth, notificationRoutes);
+app.use('/api/conversations', auth, conversationRoutes);
+app.use((req, res) => res.status(404).json({ error: 'Route not found' }));
+app.use(errorHandler);
+export default app;
