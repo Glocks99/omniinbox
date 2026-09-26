@@ -25,6 +25,8 @@ Web Push is configured with VAPID keys in `server/.env` (`VAPID_PUBLIC_KEY`, `VA
 
 The root `vercel.json` builds the Vite client from `client/` and rewrites direct URLs to the SPA entry page. Deploy the repository root as the Vercel project. Add `VITE_API_URL` in Vercel's project environment variables and point it to your deployed API (for example, `https://your-api.example.com/api`); the backend must be hosted separately and configured to allow the Vercel site in CORS.
 
+The production build adds canonical, Open Graph, Twitter, and SoftwareApplication metadata, plus `robots.txt` and `sitemap.xml`. It uses `VITE_SITE_URL` when set, or Vercel's production domain environment variable. Set `VITE_SITE_URL` to your canonical HTTPS domain if your host does not expose its production domain during builds. After deployment, submit `https://your-domain/sitemap.xml` in Google Search Console. The site currently has one public URL; authenticated conversations are not listed.
+
 WhatsApp and Instagram are deferred pending the required platform access and review. The app reports those channels as unavailable and rejects sends instead of pretending delivery occurred.
 
 ## Features

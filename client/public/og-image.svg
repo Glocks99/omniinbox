@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="background" x1="40" y1="30" x2="1160" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#103C39"/>
+      <stop offset="1" stop-color="#167A70"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="97" y1="405" x2="1102" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C1F1E3"/>
+      <stop offset="1" stop-color="#77D6C1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#background)"/>
+  <circle cx="1050" cy="120" r="250" fill="#80D7C0" fill-opacity=".08"/>
+  <circle cx="1110" cy="540" r="300" fill="#BDF2E3" fill-opacity=".07"/>
+  <circle cx="82" cy="590" r="220" fill="#BDF2E3" fill-opacity=".05"/>
+  <rect x="92" y="198" width="176" height="176" rx="42" fill="#F7FFFC"/>
+  <path d="M124 247a16 16 0 0 1 16-16h80a16 16 0 0 1 16 16v51a16 16 0 0 1-16 16h-12v27l-34-27h-34a16 16 0 0 1-16-16z" fill="#165D58"/>
+  <path d="M148 255h64M148 276h44" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+  <path d="M112 282v45a16 16 0 0 0 16 16h16v-18h-11v-35h-5a16 16 0 0 1-16-8" fill="#77D6C1"/>
+  <text x="302" y="270" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="70" font-weight="700" letter-spacing="-3">OmniInbox</text>
+  <rect x="304" y="304" width="96" height="7" rx="3.5" fill="url(#accent)"/>
+  <text x="92" y="466" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="49" font-weight="650" letter-spacing="-1.5">A shared inbox for every conversation.</text>
+  <text x="96" y="520" fill="#C5E9E1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="400">Telegram and team messages, together in one workspace.</text>
+</svg>
