@@ -25,6 +25,10 @@ Web Push is configured with VAPID keys in `server/.env` (`VAPID_PUBLIC_KEY`, `VA
 
 The root `vercel.json` builds the Vite client from `client/` and rewrites direct URLs to the SPA entry page. Deploy the repository root as the Vercel project. Add `VITE_API_URL` in Vercel's project environment variables and point it to your deployed API (for example, `https://your-api.example.com/api`); the backend must be hosted separately and configured to allow the Vercel site in CORS.
 
+## Render server deployment
+
+The root `render.yaml` defines the Express/Socket.IO server as a Render web service. In Render, create a Blueprint from this repository and enter the prompted `MONGO_URI`, Telegram token, existing VAPID key pair, and VAPID contact URI through the dashboard; Render generates `JWT_SECRET`. Never put secret values in this repository. Once Vercel is deployed, set `CLIENT_ORIGIN` to the Vercel site origin and `CLIENT_URL` to its full HTTPS URL in Render. Also allow Render's outbound database connections in Atlas Network Access. The free Render service sleeps after 15 minutes without inbound traffic, so Telegram polling pauses while it sleeps; choose an always-on paid plan if continuous Telegram intake is required. [Render free instance behavior](https://render.com/docs/free).
+
 The production build adds canonical, Open Graph, Twitter, and SoftwareApplication metadata, plus `robots.txt` and `sitemap.xml`. It uses `VITE_SITE_URL` when set, or Vercel's production domain environment variable. Set `VITE_SITE_URL` to your canonical HTTPS domain if your host does not expose its production domain during builds. After deployment, submit `https://your-domain/sitemap.xml` in Google Search Console. The site currently has one public URL; authenticated conversations are not listed.
 
 WhatsApp and Instagram are deferred pending the required platform access and review. The app reports those channels as unavailable and rejects sends instead of pretending delivery occurred.
