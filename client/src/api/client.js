@@ -1,4 +1,7 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const DEFAULT_API_URL = import.meta.env.PROD
+  ? 'https://omniinbox-server.onrender.com/api'
+  : 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
 
 async function request(path, { token, ...options } = {}) {
   let response;
