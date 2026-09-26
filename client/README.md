@@ -10,4 +10,4 @@ The Telegram inbox reports bot setup/connection status and provides a link to st
 
 For PWA installation use the download icon. If the browser does not expose an install prompt, the UI shows browser-specific manual steps. Run `npm run build` and `npm run preview` to serve a production build locally; public installability and Web Push require HTTPS (localhost is supported in development). The service worker caches the app shell only. Authentication and messaging require a live server/network.
 
-See [SPEC.md](SPEC.md) and the root [API contract](../API_CONTRACT.md).
+The root [README](../README.md) describes the complete application and setup.

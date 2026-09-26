@@ -33,6 +33,4 @@ WhatsApp and Instagram are deferred pending the required platform access and rev
 
 Authentication, live messaging, and API access need the backend and network. The service worker does not make conversations or sends available offline. Push delivery needs server VAPID keys and a browser subscription. Telegram attachments are currently represented by a notice; their contents are not downloaded or displayed.
 
-## Project docs
-
-Read [ARCHITECTURE.md](ARCHITECTURE.md), [DATA_MODEL.md](DATA_MODEL.md), [API_CONTRACT.md](API_CONTRACT.md), the server/client README and SPEC files, and [TASKS.md](TASKS.md) for implementation details.
+For setup and implementation notes, see the [client README](client/README.md) and [server README](server/README.md).

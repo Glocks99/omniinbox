@@ -12,6 +12,6 @@ Express/Mongoose API and Socket.IO service. MongoDB stores accounts, workspaces,
 
 The bot uses `getUpdates` long polling. Run one backend process per bot, and make sure the bot has no active webhook. The server will detect a webhook and stop setup without removing it. Customers must start the bot before it can send them a private reply. Restart after changing environment values.
 
-`npm run seed` safely ensures the demo account and workspace; it does not populate fake external-platform chats or wipe collections. For the API surface see [the contract](../API_CONTRACT.md) and [server spec](SPEC.md).
+`npm run seed` safely ensures the demo account and workspace; it does not populate fake external-platform chats or wipe collections. The root [README](../README.md) describes the complete application and setup.
 
 Push subscriptions are stored per user/browser in MongoDB. Message text is excluded from push payloads; only a generic alert and conversation link are sent. Remove or rotate VAPID keys only as part of a deliberate deployment change, since existing browser subscriptions are tied to the public key.
