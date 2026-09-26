@@ -23,7 +23,7 @@ Web Push is configured with VAPID keys in `server/.env` (`VAPID_PUBLIC_KEY`, `VA
 
 ## Vercel deployment
 
-The root `vercel.json` builds the Vite client from `client/` and rewrites direct URLs to the SPA entry page. Deploy the repository root as the Vercel project. Add `VITE_API_URL` in Vercel's project environment variables and point it to your deployed API (for example, `https://your-api.example.com/api`); the backend must be hosted separately and configured to allow the Vercel site in CORS.
+The `client/vercel.json` builds the Vite client and rewrites direct URLs to the SPA entry page. In Vercel, set the project Root Directory to `client` so Vercel uses this configuration. Add `VITE_API_URL` in Vercel's project environment variables and point it to your deployed API (for example, `https://your-api.example.com/api`); the backend must be hosted separately and configured to allow the Vercel site in CORS.
 
 ## Render server deployment
 
