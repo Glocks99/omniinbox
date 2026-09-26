@@ -18,6 +18,10 @@ services:
         sync: false
       - key: TELEGRAM_OWNER_ID
         value: user_admin
+      - key: CLIENT_URL
+        value: https://omniinbox-rho.vercel.app
+      - key: CLIENT_ORIGIN
+        value: https://omniinbox-rho.vercel.app
       - key: VAPID_PUBLIC_KEY
         sync: false
       - key: VAPID_PRIVATE_KEY
