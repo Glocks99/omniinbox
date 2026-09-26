@@ -19,9 +19,9 @@ services:
       - key: TELEGRAM_OWNER_ID
         value: user_admin
       - key: CLIENT_URL
-        value: https://omniinbox-rho.vercel.app
+        value: https://omnichatinbox.chat
       - key: CLIENT_ORIGIN
-        value: https://omniinbox-rho.vercel.app
+        value: https://omnichatinbox.chat,https://www.omnichatinbox.chat
       - key: VAPID_PUBLIC_KEY
         sync: false
       - key: VAPID_PRIVATE_KEY

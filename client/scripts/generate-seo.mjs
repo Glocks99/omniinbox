@@ -13,7 +13,7 @@ const rawSiteUrl = process.env.VITE_SITE_URL
   || fileEnv.VITE_VERCEL_PROJECT_PRODUCTION_URL
   || process.env.VERCEL_PROJECT_PRODUCTION_URL
   || fileEnv.VERCEL_PROJECT_PRODUCTION_URL
-  || '';
+  || 'https://omnichatinbox.chat';
 
 function getCanonicalOrigin(value) {
   if (!value.trim()) return '';
