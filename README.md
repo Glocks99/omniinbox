@@ -21,6 +21,10 @@ Requirements: Node.js 18+ and a running MongoDB server (MongoDB Compass is a cli
 
 Web Push is configured with VAPID keys in `server/.env` (`VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, and `VAPID_SUBJECT`). Generate a fresh key pair for each deployment; keep the private key server-side and use HTTPS in production (localhost is supported for development). In the inbox notification menu, choose **Enable push** and allow browser notifications. Sound and vibration are optional per-account preferences; vibration depends on device/browser support, and background sound follows the device's notification settings.
 
+## Vercel deployment
+
+The root `vercel.json` builds the Vite client from `client/` and rewrites direct URLs to the SPA entry page. Deploy the repository root as the Vercel project. Add `VITE_API_URL` in Vercel's project environment variables and point it to your deployed API (for example, `https://your-api.example.com/api`); the backend must be hosted separately and configured to allow the Vercel site in CORS.
+
 WhatsApp and Instagram are deferred pending the required platform access and review. The app reports those channels as unavailable and rejects sends instead of pretending delivery occurred.
 
 ## Features
