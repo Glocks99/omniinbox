@@ -8,10 +8,10 @@ export default function LoginPage() {
   const { signIn, signUp } = useAuth();
   const [inviteToken] = useState(() => new URLSearchParams(window.location.search).get('invite') || '');
   const [mode, setMode] = useState(() => inviteToken ? 'register' : 'login');
-  const [email, setEmail] = useState('admin@omniinbox.local');
+  const [email, setEmail] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('password123');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -22,14 +22,7 @@ export default function LoginPage() {
   function changeMode(nextMode) {
     setMode(nextMode);
     setError('');
-    if (nextMode === 'register') {
-      if (email === 'admin@omniinbox.local') setEmail('');
-      setPassword('');
-    }
-    if (nextMode === 'login' && !email) {
-      setEmail('admin@omniinbox.local');
-      setPassword('password123');
-    }
+    setPassword('');
   }
 
   async function submit(event) {

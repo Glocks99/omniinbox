@@ -48,3 +48,36 @@
 @media(max-width:760px){.topbar{padding:0 10px}.topbar-right{gap:6px}.crumb strong,.topbar-divider{display:none}.profile-menu>span:nth-child(2){display:none}.workflow-panel{gap:7px;padding:8px}.workflow-panel select{min-width:96px}.workflow-follow-up{width:100%}.row-labels{gap:3px}.conversation-tag{max-width:56px}.status-filters{padding-left:10px;padding-right:10px}}
 .telegram-connection-pill{display:flex;align-items:center;gap:7px;color:#737b78;font-size:9px;white-space:nowrap}.telegram-connection-pill .online-dot{width:6px;height:6px}.row-assignee{color:#7e8582;font-size:8px;white-space:nowrap}.row-assignee strong{font-weight:600}@media(max-width:760px){.telegram-connection-pill{font-size:0}.telegram-connection-pill .online-dot{width:7px;height:7px}}
 .notifications-popover{width:min(300px,calc(100vw - 20px))}.notification-settings>button:disabled{opacity:.6}.notification-toggle{display:flex;align-items:center;gap:7px;margin-top:8px;color:#666873;font-size:9px;line-height:1.35;cursor:pointer}.notification-toggle input{margin:0;accent-color:#165d58}.notification-hint{display:block;margin-top:8px;color:#9698a0;font-size:8px;line-height:1.45}.notification-error{margin:8px 0 0!important;color:#bb4b4b!important;font-size:9px!important}
+
+@media(max-width:760px){
+  :root{font-size:16px}
+  body,.dashboard{min-height:100dvh}
+  .dashboard-content{padding:18px 12px 14px}
+  .page-heading{align-items:flex-start;gap:12px;margin-bottom:16px}
+  .page-heading h1{font-size:25px}
+  .page-heading p:last-child,.login-heading>p:last-child,.hero-copy{font-size:15px;line-height:1.55}
+  .new-message-button,.login-button,.send-button,.workspace-invite-button{min-height:44px;font-size:15px}
+  .topbar{min-height:60px;height:auto;padding:8px 12px}
+  .crumb,.inbox-status,.profile-menu,.nav-item,.logout-button{font-size:14px}
+  .list-header h1{font-size:18px}
+  .total-count,.platform-badge,.row-top time,.message-meta,.profile-copy small,.row-assignee{font-size:12px}
+  .search-box{height:44px}
+  .search-box input,.thread-search input,.login-form input,.compose-form input,.compose-form select,.compose-form textarea,.recipient-search input,.reply-box textarea,.invite-link-box input,.workflow-panel select,.workflow-tags form input{font-size:16px}
+  .list-caption,.eyebrow,.workspace-label,.workflow-panel>label,.login-form label,.compose-form label,.recipient-search>label{font-size:12px}
+  .row-top strong,.profile-copy strong,.sidebar-help strong,.workspace-member strong,.popover-account strong{font-size:14px}
+  .row-bottom p,.conversation-row .row-content p,.sidebar-help small,.workspace-member small,.workspace-popover>header small,.popover-account small{font-size:13px;line-height:1.4}
+  .message-bubble{font-size:16px;line-height:1.5}
+  .status-label,.follow-up-label,.conversation-tag,.nav-count,.list-caption span+span,.notification-toggle,.notification-settings>p,.notification-hint,.notification-error,.workspace-error,.password-hint,.form-footer,.auth-switch{font-size:12px}
+  .workflow-panel select,.assignee-filter select,.status-filters button{min-height:38px;font-size:14px}
+  .workflow-panel>label{gap:6px}
+  .profile-avatar{width:34px;height:34px;font-size:14px}
+  .workspace-popover,.notifications-popover,.install-app-popover{font-size:14px}
+  .workspace-invite-button,.notification-settings>button{min-height:40px;font-size:14px}
+  .login-heading h2{font-size:25px}
+  .login-form input{min-height:46px;padding:10px 12px}
+  .login-form label{gap:7px}
+  .login-note{font-size:13px}
+  .telegram-setup-card h2{font-size:19px}
+  .telegram-setup-card p,.telegram-setup-card a{font-size:14px;line-height:1.55}
+  .telegram-setup-card code{font-size:13px}
+}
