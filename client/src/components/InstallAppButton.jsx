@@ -5,6 +5,10 @@ let deferredPrompt = null;
 let installed = typeof window !== 'undefined' && (
   window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true
 );
+const isAppleMobile = typeof navigator !== 'undefined' && (
+  /iPhone|iPad|iPod/i.test(navigator.userAgent)
+  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+);
 const subscribers = new Set();
 
 function notifySubscribers() {
@@ -28,6 +32,11 @@ if (typeof window !== 'undefined') {
 export default function InstallAppButton({ className = '' }) {
   const [installState, setInstallState] = useState({ canPrompt: Boolean(deferredPrompt), installed });
   const [helpOpen, setHelpOpen] = useState(false);
+  const installLabel = installState.canPrompt
+    ? 'Install OmniInbox now'
+    : isAppleMobile
+      ? 'How to install OmniInbox on iPhone or iPad'
+      : 'Show how to install OmniInbox';
 
   useEffect(() => {
     const update = (state) => setInstallState(state);
@@ -65,7 +74,7 @@ export default function InstallAppButton({ className = '' }) {
       <button
         type="button"
         className="icon-button install-app-button"
-        aria-label={installState.canPrompt ? 'Install OmniInbox now' : 'Show how to install OmniInbox'}
+        aria-label={installLabel}
         title={installState.canPrompt ? 'Install OmniInbox' : 'Install instructions'}
         aria-expanded={helpOpen}
         aria-haspopup="dialog"
@@ -76,8 +85,19 @@ export default function InstallAppButton({ className = '' }) {
       {helpOpen && (
         <div className="install-app-popover" role="dialog" aria-label="Install OmniInbox">
           <button className="install-app-close" type="button" aria-label="Close install instructions" onClick={() => setHelpOpen(false)}><X size={15} /></button>
-          <strong>Install OmniInbox</strong>
-          <p>Choose <b>Install app</b> or <b>Add to Home Screen</b> from your browser menu. On iPhone or iPad, open Share, then choose <b>Add to Home Screen</b>.</p>
+          {isAppleMobile ? <>
+            <strong>Add OmniInbox to your Home Screen</strong>
+            <ol className="install-app-steps">
+              <li>Open this page in Safari. If it opened inside another app, use its menu to open it in Safari.</li>
+              <li>Tap Safari’s <b>Share</b> button.</li>
+              <li>Scroll down and tap <b>Add to Home Screen</b>.</li>
+              <li>Turn on <b>Open as Web App</b>, then tap <b>Add</b>.</li>
+            </ol>
+            <p>Apple requires these steps; a website can’t open the installation menu for you.</p>
+          </> : <>
+            <strong>Install OmniInbox</strong>
+            <p>Choose <b>Install app</b> or <b>Add to Home Screen</b> from your browser menu.</p>
+          </>}
         </div>
       )}
     </div>

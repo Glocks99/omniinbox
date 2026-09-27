@@ -80,4 +80,8 @@
   .telegram-setup-card h2{font-size:19px}
   .telegram-setup-card p,.telegram-setup-card a{font-size:14px;line-height:1.55}
   .telegram-setup-card code{font-size:13px}
+  .install-app-popover strong{font-size:15px}
+  .install-app-popover p,.install-app-steps{font-size:14px;line-height:1.5}
+  .install-app-steps{margin:10px 0 8px;padding-left:20px}
+  .install-app-steps li{padding:0 0 6px 2px}
 }
